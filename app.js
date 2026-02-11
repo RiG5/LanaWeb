@@ -44,3 +44,34 @@ document.addEventListener('DOMContentLoaded', function() {
         photoCircle.style.animation = 'slideInPhoto 1.5s ease-out forwards, float 6s ease-in-out infinite';
     }, 2000);
 });
+// Функции для модальных окон на странице "Забрать бестселлер"
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = 'block';
+    document.body.style.overflow = 'hidden'; // запрещаем прокрутку фона
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+    document.body.style.overflow = 'auto'; // возвращаем прокрутку
+}
+
+// Закрытие модального окна при клике вне его области
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Закрытие по клавише ESC
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (modal.style.display === 'block') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+});

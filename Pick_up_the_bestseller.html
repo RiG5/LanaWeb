@@ -21,7 +21,123 @@
     
     <main>
         <h1>Забрать бестселлер</h1>
-        <!-- Контент страницы -->
+
+        <!-- Контейнер для карточек книг -->
+        <div class="books-grid">
+            <!-- Книга 1: (Не) согреши -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <!-- ⚠️ ССЫЛКА ЗАГЛУШКА. Нужно заменить на реальную обложку -->
+                    <img src="https://cdn.litres.ru/pub/c/cover/69681799.jpg">
+                </div>
+                <h3 class="book-title">(Не) согреши</h3>
+                <button class="book-details-btn" onclick="openModal('modal1')">Подробнее</button>
+            </div>
+
+            <!-- Книга 2: По новой -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://cdn.litres.ru/pub/c/cover/70334431.jpg">
+                </div>
+                <h3 class="book-title">По новой</h3>
+                <button class="book-details-btn" onclick="openModal('modal2')">Подробнее</button>
+            </div>
+
+            <!-- Книга 3: Игры подсознания -->
+ <!--           <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://via.placeholder.com/300x450/333333/ffffff?text=Игры+подсознания" alt="Обложка книги Игры подсознания">
+                </div>
+                <h3 class="book-title">Игры подсознания</h3>
+                <button class="book-details-btn" onclick="openModal('modal3')">Подробнее</button>
+            </div>-->
+
+            <!-- Книга 4: Грань реальности -->
+ <!--           <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://via.placeholder.com/300x450/1f1f1f/ffffff?text=Грань+реальности" alt="Обложка книги Грань реальности">
+                </div>
+                <h3 class="book-title">Грань реальности</h3>
+                <button class="book-details-btn" onclick="openModal('modal4')">Подробнее</button>
+            </div>
+        </div>-->
+
+        <!-- ===== МОДАЛЬНЫЕ ОКНА (Всплывающие при клике) ===== -->
+    
+        <!-- Модальное окно для "(Не) согреши" -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
+                <h2>(Не) согреши</h2>
+                <p class="book-description">
+                    Поддаваясь собственным грехам, люди случайным образом умирают один за другим. 
+                    Связывает их лишь одно: шёпот дьяволицы, которая заставляет сдаваться под натиском собственных грехов. 
+                    Никто не в силах противостоять сладким речам, манящим согрешить ещё всего один раз... 
+                    последний раз перед своей кончиной.
+                    Тем временем дьяволица учится искусству тонкой манипуляции, 
+                    а старшие демоны постепенно раскрывают тайну её происхождения. 
+                    Но внезапная любовь к простому смертному путает все карты. Беда лишь в том, 
+                    что этого человека вот-вот должна догнать собственная смерть…
+                </p>
+                <div class="book-links">
+                    <a href="https://www.litres.ru/book/lana-novak/ne-sogreshi-69681799/" target="_blank" class="shop-link litres">Купить на Литрес</a>
+                    <a href="#" target="_blank" class="shop-link ozon">Купить на Ozon</a> <!-- Ссылка заглушка -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно для "По новой" -->
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
+                <h2>По новой</h2>
+                <p class="book-description">
+                    Автокатастрофа оборвала жизни шестерых студентов. 
+                    Во всяком случае, так думал Гейл – тот, кто своими глазами увидел смерти всех своих друзей перед собственной гибелью.
+                    Вот только совсем скоро Гейл снова открывает глаза и понимает, что находится в больнице. 
+                    А затем видит перед собой нечто совершенно неожиданное…
+                    Ведь тот, от о не осталось и живого места, тоже оказывается цел.
+                </p>
+                <div class="book-links">
+                    <a href="https://www.litres.ru/book/lana-novak/po-novoy-70334431/" target="_blank" class="shop-link litres">Купить на Литрес</a>
+                    <a href="#" target="_blank" class="shop-link ozon">Купить на Ozon</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно для "Игры подсознания" -->
+        <!--<div id="modal3" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
+                <h2>Игры подсознания</h2>
+                <p class="book-description">
+                    Психологический триллер. Люди начинают видеть кошмары, которые постепенно 
+                    становятся реальностью. Кто-то управляет их страхами. Чтобы выжить, герою 
+                    придется сыграть с собственным подсознанием в смертельную игру.
+                </p>
+                <div class="book-links">
+                    <a href="https://www.litres.ru/author/lana-novak/" target="_blank" class="shop-link litres">Купить на Литрес</a>
+                    <a href="#" target="_blank" class="shop-link ozon">Купить на Ozon</a>
+                </div>
+            </div>
+        </div>-->
+
+        <!-- Модальное окно для "Грань реальности" -->
+        <!--<div id="modal4" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('modal4')">&times;</span>
+                <h2>Грань реальности</h2>
+                <p class="book-description">
+                    Мистическая история. Героиня обнаруживает, что может видеть параллельный мир. 
+                    Сначала она принимает это за галлюцинации, но вскоре понимает, что грань между 
+                    мирами истончается, и зло из другого измерения вот-вот прорвется в наш мир.
+                </p>
+                <div class="book-links">
+                    <a href="https://www.litres.ru/author/lana-novak/" target="_blank" class="shop-link litres">Купить на Литрес</a>
+                    <a href="#" target="_blank" class="shop-link ozon">Купить на Ozon</a>
+                </div>
+            </div>
+        </div>-->
     </main>
     
     <footer class="footer">
