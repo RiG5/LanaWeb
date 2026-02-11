@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Где меня искать - Лана Новак</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div class="background-overlay-where"></div>
+    
+    <header class="header">
+        <div class="logo">Лана Новак</div>
+        <nav class="nav-buttons">
+            <a href="index.html" class="nav-btn">Главная</a>
+            <a href="where-to-find.html" class="nav-btn">Где меня искать</a>
+            <a href="Pick_up_the_bestseller.html" class="nav-btn">Забрать бестселлер</a>
+            <a href="about-to-find.html" class="nav-btn">Обо мне</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>Забрать бестселлер</h1>
+
+        <!-- Контейнер для карточек книг -->
+        <div class="books-grid">
+            <!-- Книга 1: (Не) согреши -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://cdn.litres.ru/pub/c/cover/69681799.jpg">
+                </div>
+                <h3 class="book-title">(Не) согреши</h3>
+                <button class="book-details-btn" onclick="openModal('modal1')">Подробнее</button>
+            </div>
+
+            <!-- Книга 2: По новой -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://cdn.litres.ru/pub/c/cover/70334431.jpg">
+                </div>
+                <h3 class="book-title">По новой</h3>
+                <button class="book-details-btn" onclick="openModal('modal2')">Подробнее</button>
+            </div>
+
+            <!-- Книга 3: Отпусти меня -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://cdn.litres.ru/pub/c/cover/68469874.jpg">
+                </div>
+                <h3 class="book-title">Отпусти меня</h3>
+                <button class="book-details-btn" onclick="openModal('modal3')">Подробнее</button>
+            </div>
+
+            <!-- Книга 4: Свежее мясо -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://cdn.litres.ru/pub/c/cover/70441129.jpg">
+                </div>
+                <h3 class="book-title">Свежее мясо</h3>
+                <button class="book-details-btn" onclick="openModal('modal4')">Подробнее</button>
+            </div>
+        </div>
+
+        <!-- ===== МОДАЛЬНЫЕ ОКНА (Всплывающие при клике) ===== -->
+    
+        <!-- Модальное окно для "(Не) согреши" -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
+                <h2>(Не) согреши</h2>
+                <p class="book-description">
+                    Поддаваясь собственным грехам, люди случайным образом умирают один за другим. 
+                    Связывает их лишь одно: шёпот дьяволицы, которая заставляет сдаваться под натиском собственных грехов. 
+                    Никто не в силах противостоять сладким речам, манящим согрешить ещё всего один раз... 
+                    последний раз перед своей кончиной.
+                    Тем временем дьяволица учится искусству тонкой манипуляции, 
+                    а старшие демоны постепенно раскрывают тайну её происхождения. 
+                    Но внезапная любовь к простому смертному путает все карты. Беда лишь в том, 
+                    что этого человека вот-вот должна догнать собственная смерть…
+                </p>
+                <div class="book-links">
+                    <a href="https://www.litres.ru/book/lana-novak/ne-sogreshi-69681799/" target="_blank" class="shop-link litres">Купить на Литрес</a>
+                    <a href="#" target="_blank" class="shop-link ozon">Купить на Ozon</a> <!-- Ссылка заглушка -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно для "По новой" -->
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
+                <h2>По новой</h2>
+                <p class="book-description">
+                    Автокатастрофа оборвала жизни шестерых студентов. 
+                    Во всяком случае, так думал Гейл – тот, кто своими глазами увидел смерти всех своих друзей перед собственной гибелью.
+                    Вот только совсем скоро Гейл снова открывает глаза и понимает, что находится в больнице. 
+                    А затем видит перед собой нечто совершенно неожиданное…
+                    Ведь тот, от о не осталось и живого места, тоже оказывается цел.
+                </p>
+                <div class="book-links">
+                    <a href="https://www.litres.ru/book/lana-novak/po-novoy-70334431/" target="_blank" class="shop-link litres">Купить на Литрес</a>
+                    <!--<a href="#" target="_blank" class="shop-link ozon">Купить на Ozon</a>-->
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно для "Отпусти меня" -->
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
+                <h2>Отпусти меня</h2>
+                <p class="book-description">
+                    Своё первое убийство я совершила в шестнадцать лет. Самое забавное, что меня готовили к этому. 
+                    И будь я чуть сообразительней, в этом мире осталось бы на несколько живых душ больше.
+                </p>
+                <div class="book-links">
+                    <a href="https://www.litres.ru/book/lana-novak/otpusti-menya-68469874/" target="_blank" class="shop-link litres">Купить на Литрес</a>
+                    <!--<a href="#" target="_blank" class="shop-link ozon">Купить на Ozon</a>-->
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно для "Свежее мясо" -->
+        <div id="modal4" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('modal4')">&times;</span>
+                <h2>Свежее мясо</h2>
+                <p class="book-description">
+                    Мясник пытается замести улики собственных преступлений, когда правда открывается его глазам. В этом городе он не единственный маньяк...
+                </p>
+                <div class="book-links">
+                    <a href="https://www.litres.ru/book/lana-novak/svezhee-myaso-70441129/" target="_blank" class="shop-link litres">Купить на Литрес</a>
+                    <!--<a href="#" target="_blank" class="shop-link ozon">Купить на Ozon</a>-->
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <p>© 2026 Лана Новак. Все права защищены.</p>
+    </footer>
+
+    <script src="./app.js"></script>
+</body>
+</html>

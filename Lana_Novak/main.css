@@ -1,0 +1,692 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('./knigi-v-tyurmah_18a.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: 'Georgia', serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.6) 50%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+    z-index: -2;
+}
+
+.background-overlay-where {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.7) 50%,
+        rgba(0, 0, 0, 0.9) 100%
+    );
+    z-index: -2;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 10, 10, 0.9);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #ffffff, #e6e6e6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding: 5px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffd700;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-btn:hover {
+    color: #ffd700;
+}
+
+.nav-btn:hover::after {
+    width: 100%;
+}
+
+.main-content {
+    max-width: 1400px;
+    margin: 120px auto 50px;
+    padding: 0 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+    min-height: calc(100vh - 170px);
+}
+
+.text-content {
+    flex: 1;
+    padding: 60px 0;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInText 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes slideInText {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.text-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #ffffff;
+    text-align: left;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.text-content p {
+    font-size: 1.3rem;
+    line-height: 1.9;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: left;
+    max-width: 800px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.text-content p.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.photo-section {
+    flex: 0 0 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 140px;
+}
+
+.photo-circle {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 
+        0 0 60px rgba(255, 255, 255, 0.1),
+        0 0 120px rgba(255, 255, 255, 0.05),
+        inset 0 0 40px rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transform: translateX(50px) scale(0.9);
+    animation: slideInPhoto 1.5s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes slideInPhoto {
+    to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.02); }
+}
+
+.photo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(1.1) contrast(1.1);
+    transition: transform 0.8s ease;
+}
+
+.photo-circle:hover img {
+    transform: scale(1.05);
+}
+
+.photo-label {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+    text-align: center;
+    padding: 15px 40px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.footer {
+    text-align: center;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.9);
+    margin-top: 80px;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .main-content { flex-direction: column; gap: 60px; align-items: center; }
+    .photo-section { position: static; flex: 0 0 auto; width: 100%; max-width: 400px; }
+    .text-content { padding: 40px 0; text-align: center; }
+    .text-content h2, .text-content p { text-align: center; }
+    .text-content p { max-width: 100%; }
+}
+
+@media (max-width: 768px) {
+    .header { flex-direction: column; gap: 20px; padding: 20px; }
+    .logo { font-size: 2rem; }
+    .nav-buttons { gap: 25px; }
+    .nav-btn { font-size: 1rem; }
+    .main-content { margin-top: 160px; padding: 0 20px; }
+    .photo-circle { width: 280px; height: 280px; }
+    .text-content h2 { font-size: 2rem; }
+    .text-content p { font-size: 1.15rem; }
+    .footer { padding: 25px 15px; }
+}
+
+@media (max-width: 480px) {
+    .photo-circle { width: 250px; height: 250px; }
+    .logo { font-size: 1.8rem; }
+    .nav-buttons { gap: 15px; flex-wrap: wrap; justify-content: center; }
+    .text-content h2 { font-size: 1.8rem; }
+    .text-content p { font-size: 1.1rem; }
+}
+
+
+
+/* Специальные стили для страницы "Обо мне" */
+body[class*="about"] .main-content,
+.about-page .main-content {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+body[class*="about"] .text-content,
+.about-page .text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+body[class*="about"] .text-paragraph,
+.about-page .text-paragraph {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Стили для страницы "Где меня искать" */
+        main {
+            max-width: 800px;
+            margin: 150px auto 50px;
+            padding: 0 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            color: #ffffff;
+            font-weight: 300;
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: fadeInDown 1s ease-out forwards;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .social-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 50px;
+            margin-top: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards 0.3s;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .social-title {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            color: #ffd700;
+            font-weight: 300;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            flex-wrap: wrap;
+        }
+        
+        .social-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.4s ease;
+        }
+        
+        .social-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .social-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 0 30px rgba(255, 255, 255, 0.1),
+                inset 0 0 20px rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+        
+        .social-item:hover .social-icon {
+            background: rgba(255, 215, 0, 0.1);
+            box-shadow: 
+                0 0 50px rgba(255, 215, 0, 0.2),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-icon img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            filter: brightness(0.9);
+            transition: transform 0.4s ease;
+        }
+        
+        .social-item:hover .social-icon img {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+        
+        .social-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 12px 30px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+            display: inline-block;
+            min-width: 200px;
+        }
+        
+        .social-link:hover {
+            background: rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+            border-color: rgba(255, 215, 0, 0.5);
+            transform: scale(1.05);
+        }
+        
+        .social-name {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 10px;
+            font-weight: 300;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            main {
+                margin-top: 160px;
+                padding: 0 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 40px;
+            }
+            
+            .social-section {
+                padding: 30px;
+            }
+            
+            .social-links {
+                gap: 40px;
+            }
+            
+            .social-icon {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .social-icon img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .social-link {
+                font-size: 1.1rem;
+                min-width: 180px;
+                padding: 10px 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .social-links {
+                gap: 30px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-item {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .social-title {
+                font-size: 1.5rem;
+            }
+        }
+/* ===== СТИЛИ ДЛЯ СТРАНИЦЫ "ЗАБРАТЬ БЕСТСЕЛЛЕР" ===== */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Всегда 3 колонки */
+    gap: 40px;
+    max-width: 1400px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.book-card {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.2);
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+.book-cover {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    aspect-ratio: 2/3;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.book-cover:hover img {
+    transform: scale(1.05);
+}
+
+.book-title {
+    font-size: 1.4rem;
+    color: white;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.book-details-btn {
+    background: rgba(255, 215, 0, 0.2);
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    color: #ffd700;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.book-details-btn:hover {
+    background: rgba(255, 215, 0, 0.3);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ===== МОДАЛЬНЫЕ ОКНА ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    position: relative;
+    background: rgba(10, 10, 10, 0.95);
+    margin: 10% auto;
+    padding: 40px;
+    width: 90%;
+    max-width: 700px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.1);
+    color: white;
+}
+
+.close-btn {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    color: #aaa;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #ffd700;
+}
+
+.book-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 30px 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.book-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.shop-link {
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.shop-link.litres {
+    background: rgba(255, 215, 0, 0.2);
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    color: #ffd700;
+}
+
+.shop-link.ozon {
+    background: rgba(0, 100, 255, 0.2);
+    border: 1px solid rgba(0, 100, 255, 0.5);
+    color: #66b0ff;
+}
+
+.shop-link:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .books-grid {
+        grid-template-columns: repeat(3, 1fr); /* По-прежнему 3 колонки */
+        gap: 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .books-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .books-grid {
+        grid-template-columns: 1fr; /* 1 колонка на мобильных */
+        padding: 10px;
+        gap: 30px;
+    }
+    
+    .modal-content {
+        margin: 20% auto;
+        padding: 30px;
+        width: 95%;
+    }
+    
+    .book-links {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .book-title {
+        font-size: 1.2rem;
+    }
+}
