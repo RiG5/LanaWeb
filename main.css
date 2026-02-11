@@ -491,7 +491,7 @@ body[class*="about"] .text-paragraph,
 /* ===== СТИЛИ ДЛЯ СТРАНИЦЫ "ЗАБРАТЬ БЕСТСЕЛЛЕР" ===== */
 .books-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* Всегда 3 колонки */
     gap: 40px;
     max-width: 1400px;
     margin: 60px auto;
@@ -653,10 +653,25 @@ body[class*="about"] .text-paragraph,
 }
 
 /* Адаптивность */
+@media (max-width: 1200px) {
+    .books-grid {
+        grid-template-columns: repeat(3, 1fr); /* По-прежнему 3 колонки */
+        gap: 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .books-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+        gap: 25px;
+    }
+}
+
 @media (max-width: 768px) {
     .books-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 1 колонка на мобильных */
         padding: 10px;
+        gap: 30px;
     }
     
     .modal-content {
@@ -667,5 +682,11 @@ body[class*="about"] .text-paragraph,
     
     .book-links {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .book-title {
+        font-size: 1.2rem;
     }
 }
